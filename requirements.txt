@@ -1,5 +1,5 @@
 streamlit == 1.35.0
 pandas == 2.2.2
 plotly.express == 0.4.1
-plotly.graph_objects == 5.22.0
+plotly.graph_objects 
 streamlit.components.v1 == 1.35.0
