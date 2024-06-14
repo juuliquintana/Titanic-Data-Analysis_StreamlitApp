@@ -176,7 +176,7 @@ def mostrar_pasajeros():
         
         total_passengers_by_family_size = datos_filtrados.groupby('FamilySize').size().reset_index(name='Total Passengers').sort_values(by='Total Passengers', ascending=False).head(8)
         fig = px.bar(total_passengers_by_family_size, x="FamilySize", y="Total Passengers",
-                title="¿They travell alone?", labels={"FamilySize":"Family size", "Total Passengers":"Number of passengers"},
+                title="They travell alone?", labels={"FamilySize":"Family size", "Total Passengers":"Number of passengers"},
                 template="plotly_dark", color_discrete_sequence=px.colors.sequential.RdBu)
         st.plotly_chart(fig, use_container_width=True)
  
@@ -189,7 +189,7 @@ def mostrar_edades():
     
     
     
-    with open('fotos\edadvstitulo.html', encoding="utf-8") as file2:
+    with open('fotos/edadvstitulo.html', encoding="utf-8") as file2:
             html_str2 = file2.read()
     components.html(html_str2, height=600, scrolling=False)
 
