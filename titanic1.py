@@ -12,7 +12,7 @@ def cargar_datos():
     return pd.read_csv('titanic_clean.csv')
 
 def cargar_datos_originales():
-    return pd.read_csv(r'C:\INSTALADORES\Documents\GitHub\Titanic\csv\titanic.csv')
+    return pd.read_csv('titanic.csv')
 
 # load the data
 datos = cargar_datos()
