@@ -12,14 +12,14 @@ def cargar_datos():
     return pd.read_csv('csv/titanic_clean.csv')
 
 def cargar_datos_originales():
-    return pd.read_csv('titanic.csv')
+    return pd.read_csv('csv/titanic.csv')
 
 # load the data
 datos = cargar_datos()
 datos_originales = cargar_datos_originales()
 
 #make the sidebar
-st.sidebar.image("fotos/titanic_original.jpg", width=300)
+st.sidebar.image('fotos/titanic_original.jpg', width=300)
 opcion = st.sidebar.radio(
     "Select a section:",
     ["Welcome","Inicio","Dataset","Passengers","Age", "Survivor", "Fare"]
