@@ -96,14 +96,14 @@ datos_filtrados = aplicar_filtros(datos, filtros)
 
 def portada():
     st.markdown('<div class="title"> Welcome to a analysis from the </div>', unsafe_allow_html=True)
-    st.image(r"fotos\titulo.jpg", use_column_width=True, width=500)
+    st.image('fotos/titulo.jpg', use_column_width=True, width=500)
     
 def mostrar_inicio(): 
     st.markdown('<div class="title">TITANIC</div>', unsafe_allow_html=True)
     st.markdown('<div class="subheader">And no, its not about James Cameron movie</div>', unsafe_allow_html=True)
-    st.image(r"fotos\titanicpeli.jpg", use_column_width=False, width=500)
+    st.image('fotos/titanicpeli.jpg', use_column_width=False, width=500)
     st.markdown('<div class="subheader">Its a data analysis from the real passengers of the titanic</div>', unsafe_allow_html=True)
-    st.image(r'fotos\titanic_original.jpg', use_column_width=False, width=500)
+    st.image('fotos/titanic_original.jpg', use_column_width=False, width=500)
 
 
 
@@ -141,7 +141,7 @@ def mostrar_pasajeros():
                 st.write("")
             
         with col2:
-                with open (r"fotos\passengers_by_class.html", encoding="utf-8") as file6:
+                with open ('fotos/passengers_by_class.html', encoding="utf-8") as file6:
                             html_str6 = file6.read()
                 components.html(html_str6, height=600, scrolling=False)
             
@@ -157,7 +157,7 @@ def mostrar_pasajeros():
 
         with col2:
             
-            with open(r"fotos\passxsex.html", encoding="utf-8") as file7:
+            with open('fotos/passxsex.html', encoding="utf-8") as file7:
                 html_str7 = file7.read()
             components.html(html_str7, height=700, scrolling=False)
 
@@ -167,7 +167,7 @@ def mostrar_pasajeros():
     
     with tab4: 
         
-        with open(r"fotos\passxtitulo.html", encoding="utf-8") as file1:
+        with open('fotos/passxtitulo.html', encoding="utf-8") as file1:
             html_str1 = file1.read()
         components.html(html_str1, height=1000, scrolling=False)
         
@@ -183,13 +183,13 @@ def mostrar_pasajeros():
 # function to show the ages   
 def mostrar_edades():
     
-    with open(r"fotos/histograma.html", encoding="utf-8") as file8:
+    with open('fotos/histograma.html', encoding="utf-8") as file8:
         html_str8 = file8.read()  
     components.html(html_str8, height=600, scrolling=False)
     
     
     
-    with open(r"fotos\edadvstitulo.html", encoding="utf-8") as file2:
+    with open('fotos\edadvstitulo.html', encoding="utf-8") as file2:
             html_str2 = file2.read()
     components.html(html_str2, height=600, scrolling=False)
 
@@ -202,7 +202,7 @@ def mostrar_sobrevivientes():
                                     "By class"])
     with tab1:
         
-        with open(r"fotos\sobrevivientes.html", encoding="utf-8") as file9:
+        with open('fotos/sobrevivientes.html', encoding="utf-8") as file9:
             html_str9 = file9.read()
         components.html(html_str9, height=600, scrolling=False)
         
@@ -224,12 +224,12 @@ def mostrar_sobrevivientes():
     
     with tab4:
         
-        with open(r"fotos\sobrevivientesxclase.html", encoding="utf-8") as file12:
+        with open('fotos/sobrevivientesxclase.html', encoding="utf-8") as file12:
             html_str12 = file12.read()
         components.html(html_str12, height=400, scrolling=False)
         
         
-        with open(r"fotos\pie_chart_class.html", encoding="utf-8") as file10:
+        with open('fotos/pie_chart_class.html', encoding="utf-8") as file10:
             html_str10 = file10.read()
         components.html(html_str10, height=400, scrolling=False)
     
@@ -264,7 +264,7 @@ def mostrar_tarifas():
     
     with tab2:
         
-        with open(r"fotos\farexclass.html", encoding="utf-8") as file13:
+        with open('fotos/farexclass.html', encoding="utf-8") as file13:
             html_str13 = file13.read()
         components.html(html_str13, height=600, scrolling=False)
         st.plotly_chart(fig, use_container_width=True)
