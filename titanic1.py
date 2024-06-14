@@ -114,7 +114,7 @@ def mostrar_pasajeros():
                                 "By class",
                             "By sex",
                             "By title",
-                            "¿They travel alone?"])
+                            "They travel alone?"])
     
     with tab1:    
         fig = go.Figure()
