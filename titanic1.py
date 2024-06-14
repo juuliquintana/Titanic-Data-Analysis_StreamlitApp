@@ -9,7 +9,7 @@ st.set_page_config(page_title="Titanic", layout="wide" , initial_sidebar_state="
 
 @st.cache_resource
 def cargar_datos():
-    return pd.read_csv('titanic_clean.csv')
+    return pd.read_csv('csv/titanic_clean.csv')
 
 def cargar_datos_originales():
     return pd.read_csv('titanic.csv')
