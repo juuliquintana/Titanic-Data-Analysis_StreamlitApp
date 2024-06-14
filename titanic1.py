@@ -19,7 +19,7 @@ datos = cargar_datos()
 datos_originales = cargar_datos_originales()
 
 #make the sidebar
-st.sidebar.image(r"fotos\titanic_original.jpg", width=300)
+st.sidebar.image("fotos/titanic_original.jpg", width=300)
 opcion = st.sidebar.radio(
     "Select a section:",
     ["Welcome","Inicio","Dataset","Passengers","Age", "Survivor", "Fare"]
