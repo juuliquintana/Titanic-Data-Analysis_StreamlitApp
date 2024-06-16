@@ -1,4 +1,4 @@
-!(fotos\readme.png)
+![Title](fotos\readme.png)
 
 
 Welcome to the Titanic Data Analysis project! This project was created as part of the first module of our bootcamp. It involves cleaning, transforming, and visualizing data using Python, culminating in a user-friendly Streamlit application that presents the results.
