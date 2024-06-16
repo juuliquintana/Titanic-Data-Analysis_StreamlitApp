@@ -34,5 +34,7 @@ Plotly
 ### Conclusion
 This project serves as a tribute to the victims of the Titanic disaster by analyzing and visualizing the data related to this historical event. We hope that through this analysis, we can gain insights and remember the real stories behind the tragedy.
 
+### Image Credits
+All images included in this project are sourced from [Pinterest](https://www.pinterest.es)
 
 
