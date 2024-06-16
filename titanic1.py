@@ -22,7 +22,7 @@ datos_originales = cargar_datos_originales()
 st.sidebar.image('fotos/titanic_original.jpg', width=300)
 opcion = st.sidebar.radio(
     "Select a section:",
-    ["Welcome","Inicio","Dataset","Passengers","Age", "Survivor", "Fare"]
+    ["Welcome","Inicio","Dataset","Passengers","Age", "Survivor", "Fare","Conlusion"]
 )
 st.sidebar.header("Filtros")
 
@@ -104,6 +104,57 @@ def mostrar_inicio():
     st.image('fotos/titanicpeli.jpg', use_column_width=False, width=500)
     st.markdown('<div class="subheader">Its a data analysis from the real passengers of the titanic</div>', unsafe_allow_html=True)
     st.image('fotos/titanic_original.jpg', use_column_width=False, width=500)
+    
+def mostrar_ambos_datasets():
+    tab1, tab2, tab3, tab4 = st.tabs(["Original dataset", "Columns transformation", "Null values", "Modified dataset"])
+    with tab1:
+        st.markdown('<div class="subheader">Original dataset</div>', unsafe_allow_html=True)
+        st.dataframe(datos_originales)  
+
+    with tab2:
+        st.markdown('<div class="subheader">Columns transformation</div>', unsafe_allow_html=True)
+        st.text("Build the following columns:")
+        st.text("- Title: Extracted from the Name column, and then the values were grouped into Miss, Mrs and Mr categories")
+        st.code("""
+        df["Title"]=df["Name"].apply(lambda x: x.split(',')[1].split('.')[0])
+        unique_titles = df['Title'].unique()
+        df.replace(to_replace = [' Mlle', ' Ms',' Miss'], value = 'Miss', inplace = True)
+        df.replace(to_replace = [' Mme', ' Mrs'], value = 'Mrs', inplace = True)
+        df.replace(to_replace = [' Don',' Sir',' Mr'],value='Mr',inplace=True)
+                """, language="python")
+        st.text("- FamilySize: Sum of SibSp and Parch columns, plus 1 and then drop the SibSp and Parch columns")
+        st.code("""
+        df["FamilySize"] = df["SibSp"] + df["Parch"] + 1 
+        df = df.drop(columns = ["SibSp", "Parch"])
+                """, language="python")
+        st.text("- Update_fare: Multiply the Fare column by 98.4 and round it to 1 decimal place, to convert it to actual currency")
+        st.code("""df["Update_fare"]=df["Fare"].apply(lambda x: x * 98.4).round(1)""", language="python")
+        st.text("- Survived: Se cambió el valor de 1 y 0 por Yes y No")
+        st.code("""df["Survived"] = df["Survived"].replace({0: "No", 1: "Yes"})""", language="python")
+        
+    with tab3:
+        st.markdown('<div class="subheader">Handling null values</div>', unsafe_allow_html=True)
+        st.text("The following changes were made to the dataset:")
+        st.text("- The Cabin and Embarked columns were filled with the value 'Unknown'")
+        st.code("""
+                df.fillna({'Cabin':'Unknown'}, inplace=True)
+                df,fillna({'Embarked':'Unknown'}, inplace=True) """, language="python")
+        st.text("- The Age column was filled with the median value of the Title group")
+        st.code("""
+        median_ages = df.groupby('Title')['Age'].median()
+        #define a function that will impute the age of the missing values
+        def impute_age(row):
+            if pd.isna(row['Age']):
+                title = row['Title']
+                return median_ages[title]
+            else:
+                return row['Age']
+        
+        df['Age'] = df.apply(impute_age, axis=1)""", language="python")
+    
+    with tab4:
+        st.markdown('<div class="subheader">Modified dataset</div>', unsafe_allow_html=True)
+        st.dataframe(datos_filtrados) 
 
 
 
@@ -270,57 +321,14 @@ def mostrar_tarifas():
         st.plotly_chart(fig, use_container_width=True)
     
     
-def mostrar_ambos_datasets():
-    tab1, tab2, tab3, tab4 = st.tabs(["Original dataset", "Columns transformation", "Null values", "Modified dataset"])
-    with tab1:
-        st.markdown('<div class="subheader">Original dataset</div>', unsafe_allow_html=True)
-        st.dataframe(datos_originales)  
-
-    with tab2:
-        st.markdown('<div class="subheader">Columns transformation</div>', unsafe_allow_html=True)
-        st.text("Build the following columns:")
-        st.text("- Title: Extracted from the Name column, and then the values were grouped into Miss, Mrs and Mr categories")
-        st.code("""
-        df["Title"]=df["Name"].apply(lambda x: x.split(',')[1].split('.')[0])
-        unique_titles = df['Title'].unique()
-        df.replace(to_replace = [' Mlle', ' Ms',' Miss'], value = 'Miss', inplace = True)
-        df.replace(to_replace = [' Mme', ' Mrs'], value = 'Mrs', inplace = True)
-        df.replace(to_replace = [' Don',' Sir',' Mr'],value='Mr',inplace=True)
-                """, language="python")
-        st.text("- FamilySize: Sum of SibSp and Parch columns, plus 1 and then drop the SibSp and Parch columns")
-        st.code("""
-        df["FamilySize"] = df["SibSp"] + df["Parch"] + 1 
-        df = df.drop(columns = ["SibSp", "Parch"])
-                """, language="python")
-        st.text("- Update_fare: Multiply the Fare column by 98.4 and round it to 1 decimal place, to convert it to actual currency")
-        st.code("""df["Update_fare"]=df["Fare"].apply(lambda x: x * 98.4).round(1)""", language="python")
-        st.text("- Survived: Se cambió el valor de 1 y 0 por Yes y No")
-        st.code("""df["Survived"] = df["Survived"].replace({0: "No", 1: "Yes"})""", language="python")
-        
-    with tab3:
-        st.markdown('<div class="subheader">Handling null values</div>', unsafe_allow_html=True)
-        st.text("The following changes were made to the dataset:")
-        st.text("- The Cabin and Embarked columns were filled with the value 'Unknown'")
-        st.code("""
-                df.fillna({'Cabin':'Unknown'}, inplace=True)
-                df,fillna({'Embarked':'Unknown'}, inplace=True) """, language="python")
-        st.text("- The Age column was filled with the median value of the Title group")
-        st.code("""
-        median_ages = df.groupby('Title')['Age'].median()
-        #define a function that will impute the age of the missing values
-        def impute_age(row):
-            if pd.isna(row['Age']):
-                title = row['Title']
-                return median_ages[title]
-            else:
-                return row['Age']
-        
-        df['Age'] = df.apply(impute_age, axis=1)""", language="python")
+def conlusion():
+    st.markdown('<div class="subheader">Conlusion</div>', unsafe_allow_html=True)
+    st.write("When we think of the Titanic, iconic and often somber images come to mind. Yet, the stories of the individuals aboard this ship over 112 years ago remain relatively unknown. Today, we have explored some of these stories and uncovered intriguing facts about this tragic voyage.")
+    st.write("Our analysis, based on the dataset from Kaggle, provided insights into the demographics and fate of the Titanic passengers. We discovered that the dataset, while comprehensive, does not encompass all passengers aboard the ship. Nevertheless, it allowed us to answer fundamental questions: How many passengers were there? How many survived? Were there more men than women? What happened to the children?")
+    st.write("Interestingly, we found that a famous phrase about ships holds true here, underscoring the realities of maritime disasters. Through data analysis and visualization, we commemorated the lives lost and gained a deeper understanding of the events surrounding the Titanic’s voyage.")
+    st.write("In conclusion, this exploration serves as a reminder of the human stories behind historical events, shedding light on the lives affected by one of the most notable maritime disasters in history.")
+    st.image('fotos/memorial.jpg', use_column_width=True, width=500)
     
-    with tab4:
-        st.markdown('<div class="subheader">Modified dataset</div>', unsafe_allow_html=True)
-        st.dataframe(datos_filtrados) 
-
 # dictionary to call the functions
 opciones = {
     "Welcome": portada,
@@ -329,7 +337,8 @@ opciones = {
     "Age": mostrar_edades, 
     "Survivor": mostrar_sobrevivientes,
     "Fare": mostrar_tarifas,
-    "Dataset": (mostrar_ambos_datasets)
+    "Dataset": (mostrar_ambos_datasets),
+    "Conclusion": conlusion
 }
 
 opciones[opcion]() # call the function
