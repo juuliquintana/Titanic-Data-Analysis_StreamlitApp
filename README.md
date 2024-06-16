@@ -1,4 +1,4 @@
-!(fotos\readme.png)
+![Title](fotos/readme.png)
 
 
 Welcome to the Titanic Data Analysis project! This project was created as part of the first module of our bootcamp. It involves cleaning, transforming, and visualizing data using Python, culminating in a user-friendly Streamlit application that presents the results.
@@ -21,6 +21,8 @@ Often, when we talk about the Titanic, we focus on the movie, and we forget that
 ### Streamlit [*Application*](https://titanic-quintana.streamlit.app/) -- Click here to access!
 - Developing a user-friendly interface to present the analysis results
 - Allowing users to interact with the data and visualizations
+
+
 *Note: Sometimes, the app might go to sleep due to inactivity. If you see a message saying, "This app has gone to sleep due to inactivity. Would you like to wake it back up?" click on "Yes, get this app back up!" to restart the application.*
 
 ### Technologies Used
@@ -34,5 +36,7 @@ Plotly
 ### Conclusion
 This project serves as a tribute to the victims of the Titanic disaster by analyzing and visualizing the data related to this historical event. We hope that through this analysis, we can gain insights and remember the real stories behind the tragedy.
 
+### Image Credits
+All images included in this project are sourced from [Pinterest](https://www.pinterest.es)
 
 
