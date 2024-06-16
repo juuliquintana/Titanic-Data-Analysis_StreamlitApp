@@ -22,7 +22,7 @@ datos_originales = cargar_datos_originales()
 st.sidebar.image('fotos/titanic_original.jpg', width=300)
 opcion = st.sidebar.radio(
     "Select a section:",
-    ["Welcome","Inicio","Dataset","Passengers","Age", "Survivor", "Fare","Conlusion"]
+    ["Welcome","Inicio","Dataset","Passengers","Age", "Survivor", "Fare","Conclusion"]
 )
 st.sidebar.header("Filtros")
 
@@ -321,7 +321,7 @@ def mostrar_tarifas():
         st.plotly_chart(fig, use_container_width=True)
     
     
-def conlusion():
+def conclusion():
     st.markdown('<div class="subheader">Conlusion</div>', unsafe_allow_html=True)
     st.write("When we think of the Titanic, iconic and often somber images come to mind. Yet, the stories of the individuals aboard this ship over 112 years ago remain relatively unknown. Today, we have explored some of these stories and uncovered intriguing facts about this tragic voyage.")
     st.write("Our analysis, based on the dataset from Kaggle, provided insights into the demographics and fate of the Titanic passengers. We discovered that the dataset, while comprehensive, does not encompass all passengers aboard the ship. Nevertheless, it allowed us to answer fundamental questions: How many passengers were there? How many survived? Were there more men than women? What happened to the children?")
@@ -338,7 +338,7 @@ opciones = {
     "Survivor": mostrar_sobrevivientes,
     "Fare": mostrar_tarifas,
     "Dataset": (mostrar_ambos_datasets),
-    "Conclusion": conlusion
+    "Conclusion": conclusion
 }
 
 opciones[opcion]() # call the function
