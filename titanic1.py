@@ -287,7 +287,7 @@ def mostrar_tarifas():
         with open('fotos/farexclass.html', encoding="utf-8") as file13:
             html_str13 = file13.read()
         components.html(html_str13, height=600, scrolling=False)
-        st.plotly_chart(fig, use_container_width=True)
+        
     
     
 def conclusion():
