@@ -37,37 +37,6 @@ st.markdown(
         font-size: 4em;
         margin-bottom: 0.5em;
     }
-    .header {
-        font-family: 'Calibri', sans-serif;
-        color: #6A5ACD;
-        text-align: center;
-        font-size: 3em;
-        margin-bottom: 0.5em;
-    }
-    .subheader {
-        font-family: 'Calibri', sans-serif;
-        font-weight: bold;
-        color: beige;
-        text-align: center;
-        font-size: 2em;
-        margin-bottom: 0.5em;
-    }
-    .subsubheader {
-        font-family: 'Calibri', sans-serif;
-        font-weight: bold;
-        color: #778899;
-        text-align: center;
-        font-size: 1.5em;
-        margin-bottom: 0.5em;
-    }
-    .subsubheader_sidebar {
-        font-family: 'Calibri', sans-serif;
-        font-weight: bold;
-        color: #778899;
-        font-size: 1.5em;
-        margin-bottom: 0.5em;
-    }
-    </style>
     """,
     unsafe_allow_html=True
 )
