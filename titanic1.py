@@ -11,17 +11,17 @@ st.markdown('<div class="title">Titanic Dataset Analysis</div>', unsafe_allow_ht
 
 @st.cache_resource
 def cargar_datos():
-    return pd.read_csv('titanic_clean.csv')
+    return pd.read_csv('csv/titanic_clean.csv')
 
 def cargar_datos_originales():
-    return pd.read_csv(r'csv\titanic.csv')
+    return pd.read_csv('csv/titanic.csv')
 
 # load the data
 datos = cargar_datos()
 datos_originales = cargar_datos_originales()
 
 #make the sidebar
-st.sidebar.image(r"fotos\titanic_original.jpg", width=300)
+st.sidebar.image('fotos/titanic_original.jpg', width=300)
 opcion = st.sidebar.radio(
     "Select a section:",
     ["Welcome","Dataset","Passengers","Age", "Survivor", "Fare", "Conclusion"]
@@ -109,7 +109,7 @@ def portada():
         """, unsafe_allow_html=True)
 
 
-    st.image(r"fotos\titulo.jpg", use_column_width=True, width=220)
+    st.image("fotos/titulo.jpg", use_column_width=True, width=220)
 
 
 
@@ -393,7 +393,7 @@ def conclusion():
 </div>
 """, unsafe_allow_html=True)
 
-    st.image(r"fotos\memorial.jpg", use_column_width=True, width=500)
+    st.image('fotos/memorial.jpg', use_column_width=True, width=500)
 
 # dictionary to call the functions
 opciones = {
