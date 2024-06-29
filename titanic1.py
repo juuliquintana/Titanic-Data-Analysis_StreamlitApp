@@ -229,9 +229,10 @@ def mostrar_edades():
     fig = px.box(datos_filtrados, x= "Title",y="Age", title="Age distribution by title", 
             template="plotly_dark", width=800, height=600, color="Title", 
             color_discrete_sequence= ['#d78f88', '#7f7287', '#5b7a8e', 'silver', 'gold', 'lightblue', 'lightgreen', 'lightcoral'])
-
-    fig.write_html("edadvstitulo.html")
-    fig
+    colT1, colT2 = st.columns([27,73])
+    with colT2:
+        fig.write_html("edadvstitulo.html")
+        fig
 
 # function to show the survivors 
 def mostrar_sobrevivientes():
@@ -282,10 +283,11 @@ def mostrar_sobrevivientes():
         fig.write_html("sobrevivientesxclase.html")
         fig
         
-        
-        with open('fotos/pie_chart_class.html', encoding="utf-8") as file10:
-            html_str10 = file10.read()
-        components.html(html_str10, height=400, scrolling=False)
+        colT1, colT2 = st.columns([27,73])
+        with colT2:
+            with open('fotos/pie_chart_class.html', encoding="utf-8") as file10:
+                html_str10 = file10.read()
+            components.html(html_str10, height=400, scrolling=False)
     
 # function to show the fares   
 def mostrar_tarifas():
