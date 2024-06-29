@@ -283,7 +283,7 @@ def mostrar_sobrevivientes():
         fig
         
         
-        with open(r"fotos\pie_chart_class.html", encoding="utf-8") as file10:
+        with open('fotos/pie_chart_class.html', encoding="utf-8") as file10:
             html_str10 = file10.read()
         components.html(html_str10, height=400, scrolling=False)
     
