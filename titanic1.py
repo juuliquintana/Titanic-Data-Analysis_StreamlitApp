@@ -229,7 +229,7 @@ def mostrar_edades():
     fig = px.box(datos_filtrados, x= "Title",y="Age", title="Age distribution by title", 
             template="plotly_dark", width=800, height=600, color="Title", 
             color_discrete_sequence= ['#d78f88', '#7f7287', '#5b7a8e', 'silver', 'gold', 'lightblue', 'lightgreen', 'lightcoral'])
-    colT1, colT2 = st.columns([27,73])
+    colT1, colT2 = st.columns([15,85])
     with colT2:
         fig.write_html("edadvstitulo.html")
         fig
