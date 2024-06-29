@@ -49,9 +49,9 @@ st.markdown(
     .subheader {
         font-family: 'Calibri', sans-serif;
         font-weight: bold;
-        color: white;
+        color: #778899;
         text-align: center;
-        font-size: 1.5em;
+        font-size: 1.25em;
         margin-bottom: 0.5em;
     }
     .subsubheader {
@@ -388,7 +388,7 @@ def mostrar_ambos_datasets():
 def conclusion():
     st.markdown('<div class="subheader">Conclusions</div>', unsafe_allow_html=True)
     st.markdown("""
-<div class="subsubheader">
+<div class="subheader">
     Through data analysis, we remember the human stories behind the Titanic, gaining a deeper understanding of one of the most significant maritime disasters in history. The data allows us to explore the distribution of passengers by class, gender, and title, as well as the number of solo travelers. Additionally, we can observe the distribution of ages and titles of passengers, along with the count of survivors by gender, title, and class. Lastly, we also examined the range of fares paid by passengers, including the number of passengers who paid the maximum and minimum fares.
     <br><br>
     It's important not to forget the real story behind the beautiful movie.
