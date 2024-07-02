@@ -18,12 +18,10 @@ Often, when we talk about the Titanic, we focus on the movie, and we forget that
 - Creating visualizations to understand the distribution of passengers
 - Analyzing survival rates based on different criteria such as class, gender, and age.
 
-### Streamlit [*Application*](https://titanic-quintana.streamlit.app/) -- Click here to access!
+### Streamlit [*Application*](https://titanic-data-analysis-app.streamlit.app/) -- Click here to access!
 - Developing a user-friendly interface to present the analysis results
 - Allowing users to interact with the data and visualizations
 
-
-*Note: Sometimes, the app might go to sleep due to inactivity. If you see a message saying, "This app has gone to sleep due to inactivity. Would you like to wake it back up?" click on "Yes, get this app back up!" to restart the application.*
 
 ### Technologies Used
 Python
