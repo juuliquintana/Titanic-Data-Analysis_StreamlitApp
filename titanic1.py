@@ -203,11 +203,7 @@ def mostrar_pasajeros():
             fig.write_html("passxtitulo.html")
             fig
         with col2:
-            st.markdown("""
-            <div class="subsubheader">
-            We can see that according to the titles, the majority of passengers were 'Mr', followed by 'Miss' and 'Mrs'. This has a relation with the chart before this.
-            </div>
-            """, unsafe_allow_html=True)
+            st.markdown("")
 
     
     with tab5:
