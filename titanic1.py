@@ -190,7 +190,7 @@ def mostrar_pasajeros():
             st.markdown('<div class="subsubheader">We can see that the majority of passengers was male.</div>', unsafe_allow_html=True)
     
     with tab4: 
-        col1, col2 = st.columns([4,1])
+        col1, col2 = st.columns([3,1])
         with col1:
             total_passengers_by_title = datos_filtrados.groupby('Title').size().reset_index(name='Total Passengers').sort_values(by='Total Passengers', ascending=False). head(8)
 
@@ -203,7 +203,11 @@ def mostrar_pasajeros():
             fig.write_html("passxtitulo.html")
             fig
         with col2:
-            st.markdown("")
+            st.markdown("""
+            <div class="subsubheader">
+            We can see that according to the titles, the majority of passengers were 'Mr', followed by 'Miss' and 'Mrs'. This has a relation with the chart before this.
+            </div>
+            """, unsafe_allow_html=True)
 
     
     with tab5:
