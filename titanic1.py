@@ -379,8 +379,8 @@ def mostrar_ambos_datasets():
         st.text("- The Age column was filled with the median value of the Title group")
         st.code("""
         median_ages = df.groupby('Title')['Age'].median()
-        #define a function that will impute the age of the missing values
-        def impute_age(row):
+        # Function to impute the age based on the title of the passenger
+        def impute_age(row): 
             if pd.isna(row['Age']):
                 title = row['Title']
                 return median_ages[title]
