@@ -18,7 +18,7 @@ Often, when we talk about the Titanic, we focus on the movie, and we forget that
 - Creating visualizations to understand the distribution of passengers
 - Analyzing survival rates based on different criteria such as class, gender, and age.
 
-### Streamlit [*Application*]([https://titanic-quintana.streamlit.app](https://titanic-data-analysis-app.streamlit.app/) -- Click here to access!
+### Streamlit [*Application*]([https://titanic-quintana.streamlit.app](https://titanic-data-analysis-app.streamlit.app/]) -- Click here to access!
 - Developing a user-friendly interface to present the analysis results
 - Allowing users to interact with the data and visualizations
 
