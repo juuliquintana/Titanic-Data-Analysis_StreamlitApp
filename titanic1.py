@@ -190,22 +190,24 @@ def mostrar_pasajeros():
             st.markdown('<div class="subsubheader">We can see that the majority of passengers was male.</div>', unsafe_allow_html=True)
     
     with tab4: 
-        
-        total_passengers_by_title = datos_filtrados.groupby('Title').size().reset_index(name='Total Passengers').sort_values(by='Total Passengers', ascending=False). head(8)
+        col1, col2 = st.columns([3,1])
+        with col1:
+            total_passengers_by_title = datos_filtrados.groupby('Title').size().reset_index(name='Total Passengers').sort_values(by='Total Passengers', ascending=False). head(8)
 
-        fig = px.bar(total_passengers_by_title, x='Title', y='Total Passengers', 
-                        title="Number of passengers by title", 
-                    labels={'Title':'Title', 'Total Passengers':'Total passengers'},
-                    template='plotly_dark',
-                    color='Title',
-                    color_discrete_sequence= ['#d78f88', '#7f7287', '#5b7a8e', 'silver', 'gold', 'lightblue', 'lightgreen', 'lightcoral'], height=600, width=800)
-        fig.write_html("passxtitulo.html")
-        fig
-        st.markdown("""
-        <div class="subsubheader">
-        We can see that according to the titles, the majority of passengers were 'Mr', followed by 'Miss' and 'Mrs'. This has a relation with the chart before this.
-        </div>
-        """, unsafe_allow_html=True)
+            fig = px.bar(total_passengers_by_title, x='Title', y='Total Passengers', 
+                            title="Number of passengers by title", 
+                        labels={'Title':'Title', 'Total Passengers':'Total passengers'},
+                        template='plotly_dark',
+                        color='Title',
+                        color_discrete_sequence= ['#d78f88', '#7f7287', '#5b7a8e', 'silver', 'gold', 'lightblue', 'lightgreen', 'lightcoral'], height=600, width=800)
+            fig.write_html("passxtitulo.html")
+            fig
+        with col2:
+            st.markdown("""
+            <div class="subsubheader">
+            We can see that according to the titles, the majority of passengers were 'Mr', followed by 'Miss' and 'Mrs'. This has a relation with the chart before this.
+            </div>
+            """, unsafe_allow_html=True)
 
     
     with tab5:
